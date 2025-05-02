@@ -19,7 +19,8 @@ let client = new OpenAI()
 async function doTranslate(message) {
     const response = await client.responses.create({
         model: "gpt-4.1-nano",
-        input: `Translate the following into Jamaican Patois: "${message}"`
+        instructions: "Translate any given input into Jamaican Patois",
+        input: message
     });
     return response.output_text
 }
