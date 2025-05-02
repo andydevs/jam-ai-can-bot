@@ -8,6 +8,12 @@ import {
 import { getRandomEmoji } from "./utils.js";
 import OpenAI from "openai";
 
+// Logging function
+let quicklog = (message) => {
+    let timestamp = (new Date()).toISOString()
+    console.log(`${timestamp}: ${message}`)
+}
+
 // Create an express app
 const app = express();
 // Get port, or default to 3000
@@ -17,11 +23,13 @@ const PORT = process.env.PORT || 3000;
 let client = new OpenAI()
 
 async function doTranslate(message) {
+    quicklog(`Incomming message to translate "${message}"`)
     const response = await client.responses.create({
         model: "gpt-4.1-nano",
         instructions: "Translate any given input into Jamaican Patois",
         input: message
     });
+    quicklog(`Response text: "${response.output_text}"`)
     return response.output_text
 }
 
@@ -86,5 +94,5 @@ app.post(
 );
 
 app.listen(PORT, () => {
-    console.log("Listening on port", PORT);
+    quicklog("Listening on port", PORT);
 });

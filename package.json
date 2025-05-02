@@ -1,8 +1,8 @@
 {
-  "name": "discord-getting-started",
+  "name": "jam-ai-can-bot",
   "private": true,
   "version": "1.0.0",
-  "description": "Discord example app",
+  "description": "De wan dat do de askin an de talkin",
   "main": "app.js",
   "type": "module",
   "engines": {
