@@ -32,6 +32,15 @@ spec:
           ports:
             - name: http
               containerPort: 3000
+          env:
+            - name: APP_ID
+              value: #$$DISCORD_APP_ID$$#
+            - name: DISCORD_TOKEN
+              value: #$$DISCORD_TOKEN$$#
+            - name: PUBLIC_KEY
+              value: #$$PUBLIC_KEY$$#
+            - name: OPENAI_API_KEY
+              value: #$$OPENAI_API_KEY$$#
 ---
 apiVersion: ngrok.k8s.ngrok.com/v1alpha1
 kind: AgentEndpoint
