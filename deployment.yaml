@@ -25,13 +25,13 @@ spec:
     metadata:
       labels:
         app: jam-ai-can-bot
-    containers:
-      name: jam-ai-can-bot
-      image: jam-ai-can-bot:latest # <-- Make sure this is built!
-      imagePullPolicy: Never
-      ports:
-        - name: http
-          containerPort: 3000
+    spec:
+      containers:
+        - name: jam-ai-can-bot
+          image: andydevs/jam-ai-can-bot:latest
+          ports:
+            - name: http
+              containerPort: 3000
 ---
 apiVersion: ngrok.k8s.ngrok.com/v1alpha1
 kind: AgentEndpoint
